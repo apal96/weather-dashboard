@@ -14,15 +14,13 @@ function getApi(cityName){
     .then(function (data) {
       console.log(data);
     });
-    };
+};
 function displayWeather(event){
-    
     event.preventDefault();
     var cityS = cS.val();
     console.log(cityS);
     getApi(cityS);
     console.log("button works");
-    
 };
 
  submitButton.addEventListener('click', displayWeather);
