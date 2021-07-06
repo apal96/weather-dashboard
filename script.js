@@ -1,14 +1,13 @@
 console.log("linked")
-var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q=London&appid=78b04b3048888eaabe976027c3163509";
-var submitButton = document.querySelector(".fa-search");
+// var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q=London&appid=2ac30b0842ba2d3340555a86403c9a45";
+var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+var submitButton = document.querySelector(".searchBtn");
+var cS = $('#citySearched');
 
 
-
-console.log(submitButton)
-
-function getApi(){
-    // var cityUrl = requestUrl 
-    fetch(requestUrl)
+function getApi(cityName){
+     var cityUrl = requestUrl + cityName + "&appid=2ac30b0842ba2d3340555a86403c9a45"
+    fetch(cityUrl)
     .then(function (response) {
       return response.json();
     })
@@ -17,11 +16,13 @@ function getApi(){
     });
     };
 function displayWeather(event){
+    
     event.preventDefault();
-    var cityName = $(".citySearched").val();
-    console.log(cityName);
+    var cityS = cS.val();
+    console.log(cityS);
+    getApi(cityS);
     console.log("button works");
-    getApi();
-}
+    
+};
 
-submitButton.addEventListener('click', displayWeather);
+ submitButton.addEventListener('click', displayWeather);
