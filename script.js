@@ -1,20 +1,14 @@
 console.log("linked")
-var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q=London&appid=2ac30b0842ba2d3340555a86403c9a45";
+var requestUrl = "http://api.openweathermap.org/data/2.5/weather?q=London&appid=78b04b3048888eaabe976027c3163509";
 var submitButton = document.querySelector(".fa-search");
-var cityName = $(".citySearched").val();
 
-console.log(cityname)
+
+
 console.log(submitButton)
-fetch(requestUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  });
+
 function getApi(){
-    cityUrl = requestUrl + 
-    fetch(citytUrl)
+    // var cityUrl = requestUrl 
+    fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
@@ -24,7 +18,10 @@ function getApi(){
     };
 function displayWeather(event){
     event.preventDefault();
+    var cityName = $(".citySearched").val();
+    console.log(cityName);
     console.log("button works");
+    getApi();
 }
 
 submitButton.addEventListener('click', displayWeather);
