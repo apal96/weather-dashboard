@@ -56,6 +56,7 @@ function getApi(cityName){
         console.log(forecastData.list[i].main.temp)
         // var divEl = document.createElement('div');
         var divforCol = document.createElement('div');
+        divforCol.setAttribute("style","background-color:light-blue;")
         var h5El = document.createElement("h5");
         var listEl = document.createElement("ol");
         var tempEl = document.createElement("li");
