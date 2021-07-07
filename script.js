@@ -96,6 +96,7 @@ function renderCity(city){
   }
 
 };
+//local Storage
 function store(){
   var storedCities = JSON.parse(localStorage.getItem("cities"));
   if (storedCities !== null) {
