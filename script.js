@@ -7,6 +7,8 @@ var citySearch = $('#citySearched');
 var currentDay = document.querySelector(".currentDay");
 var forecast = document.querySelector(".forecast");
 var diplayEl = $('#result');
+var searches = document.querySelector(".previousSearch");
+var cities = [];
 
 function getApi(cityName){
 
@@ -83,10 +85,32 @@ function getApi(cityName){
   
     });
 };
+
+function renderCity(city){
+  for(var i=0;i<cities.length;i++){
+    city = cities[i];
+    var liforCol = document.createElement('li');
+    liforCol.textContent = city;
+    searches.appendChild(liforCol);
+
+  }
+
+};
+function store(){
+  var storedCities = JSON.parse(localStorage.getItem("cities"));
+  if (storedCities !== null) {
+    cities = storedCities;
+  }
+  renderCity();
+};
+function storeCities(){
+localStorage.setItem("cities",JSON.stringify(cities));
+};
 function getCity(event){
     event.preventDefault();
     var cityS = citySearch.val();
     console.log(cityS);
+    renderCity(cityS);
     getApi(cityS);
    displayEl.reset();
     
